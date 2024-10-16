@@ -3,20 +3,47 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f8ff;
 }
 
 #game-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(6, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .card {
     width: 100px;
     height: 100px;
-    background-color: #ccc;
+    background-color: #ffd700;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 24px;
     cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.flipped {
+    background-color: #ff6347;
+}
+
+#reset-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#timer, #congratulations {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#congratulations {
+    color: green;
+    font-weight: bold;
 }

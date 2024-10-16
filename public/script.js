@@ -1,5 +1,5 @@
 const cards = [];
-const cardValues = Array.from({ length: 18 }, (_, i) => i + 1);
+const fruits = ['🍎', '🍌', '🍇', '🍉', '🍒', '🍍', '🍑', '🍓', '🍋']; // Fruit emojis
 const gameContainer = document.getElementById('game-container');
 let firstCard = null;
 let secondCard = null;
@@ -9,12 +9,12 @@ let elapsedTime = 0;
 
 // Shuffle and initialize cards
 const initializeCards = () => {
-    const shuffledValues = [...cardValues, ...cardValues].sort(() => 0.5 - Math.random());
+    const shuffledFruits = [...fruits, ...fruits].sort(() => 0.5 - Math.random());
     gameContainer.innerHTML = '';
-    shuffledValues.forEach((value, index) => {
+    shuffledFruits.forEach((fruit, index) => {
         const card = document.createElement('div');
         card.className = 'card';
-        card.dataset.value = value;
+        card.dataset.value = fruit;
         card.innerText = '?';
         card.addEventListener('click', flipCard);
         gameContainer.appendChild(card);
@@ -55,6 +55,8 @@ const checkForMatch = () => {
         setTimeout(() => {
             firstCard.innerText = '?';
             secondCard.innerText = '?';
+            firstCard.classList.remove('flipped');
+            secondCard.classList.remove('flipped');
             resetTurn();
         }, 1000);
     }
